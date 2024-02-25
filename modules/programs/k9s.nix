@@ -101,7 +101,7 @@ in {
       type = yamlFormat.type;
       default = { };
       description = ''
-        Plugins written to {file}`$XDG_CONFIG_HOME/k9s/plugin.yaml`. See
+        Plugins written to {file}`$XDG_CONFIG_HOME/k9s/plugins.yaml`. See
         <https://k9scli.io/topics/plugins/> for supported values.
       '';
       example = literalExpression ''
@@ -182,7 +182,7 @@ in {
         source = yamlFormat.generate "k9s-hotkey" cfg.hotkey;
       };
 
-      "k9s/plugin.yaml" = mkIf (cfg.plugin != { }) {
+      "k9s/plugins.yaml" = mkIf (cfg.plugin != { }) {
         source = yamlFormat.generate "k9s-plugin" cfg.plugin;
       };
 
